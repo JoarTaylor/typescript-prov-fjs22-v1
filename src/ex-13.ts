@@ -13,10 +13,11 @@ const weightInKg = pokemon.weight / 10;
 const heightInM = pokemon.height / 10;
 const bmi = weightInKg / (heightInM * heightInM);
 */
+import fetch from "node-fetch";
 
 const myFetch = (pokename: string) => {
   fetch(`https://pokeapi.co/api/v2/pokemon/${pokename}`).then((data) =>
-    console.log(data)
+    data.json().then((data) => console.log(data))
   );
 };
 
